@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-export interface IGraphicDesign extends Document {
+export interface IGraphicDesign {
   title: string;
   imageUrl: string;
   description: string;
