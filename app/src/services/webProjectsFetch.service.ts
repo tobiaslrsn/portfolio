@@ -1,7 +1,4 @@
-import {
-  IExtWebProject,
-  IExtWebProjectResponse,
-} from "../models/IExtWebProject";
+import { IExtWebProjectResponse } from "../models/IExtWebProject";
 import { IWebProjectsResponse } from "../models/IWebProjects";
 import { get } from "./handleRequest.service";
 

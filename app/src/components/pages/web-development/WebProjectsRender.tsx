@@ -12,7 +12,6 @@ export const WebProjectsRender = (props: IRenderWebProject) => {
         <h2>{props.webProject.projectName}</h2>
       </Link>
 
-      {/* MAP BUILT WITH */}
       <h3>BUILT WITH:</h3>
       {props.webProject.builtWith.map((builtWith, i) => {
         return (
@@ -25,7 +24,6 @@ export const WebProjectsRender = (props: IRenderWebProject) => {
       })}
       <div>{props.webProject.description}</div>
 
-      {/* MAP IMAGE GALLERY */}
       <h3>IMAGE GALLERY URL</h3>
       {props.webProject.imageGalleryUrl.map((imageGalleryUrl) => {
         return (
@@ -36,7 +34,7 @@ export const WebProjectsRender = (props: IRenderWebProject) => {
           </>
         );
       })}
-      {/* MAP RESPONSIVE IMAGES */}
+
       <h3>RESPONSIVE IMAGES URL</h3>
       {props.webProject.responsiveImagesUrl.map((responsiveImagesUrl) => {
         return (

@@ -6,7 +6,7 @@ let successful: string = "Success";
 export const get_webProjectsController = async (_: Request, res: Response) => {
   try {
     const webProjects = await WebProjectsModel.find();
-    // return res.send(webProjects);
+
     res.status(200).json({
       status: successful,
       message: "GET web-projects working.",
@@ -36,7 +36,6 @@ export const post_newWebProjectController = async (
     });
 
     const saveWebProject = await postWebProject.save();
-    // return res.send(saveWebProject);
 
     res.status(201).json({
       status: successful,
@@ -57,7 +56,6 @@ export const get_webProjectByIdController = async (
 ) => {
   try {
     const webProjectById = await WebProjectsModel.findById(req.params.id);
-    // return res.send(webProjectById);
 
     res.status(200).json({
       status: successful,
