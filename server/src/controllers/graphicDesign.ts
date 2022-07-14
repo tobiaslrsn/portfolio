@@ -4,6 +4,8 @@ import {
   IGraphicDesign,
 } from "../models/GraphicDesign.models";
 
+let successful: string = "Success";
+
 export const get_graphicDesignsController = async (
   _: Request,
   res: Response
@@ -12,7 +14,7 @@ export const get_graphicDesignsController = async (
     const graphicDesigns = await GraphicDesignModel.find();
 
     res.status(200).json({
-      status: "Success",
+      status: successful,
       message: "GET graphic designs working.",
       data: graphicDesigns,
     });
@@ -39,7 +41,7 @@ export const post_newGraphicDesignController = async (
     const saveGraphicDesign = await postGraphicDesign.save();
 
     res.status(201).json({
-      status: "Success",
+      status: successful,
       message: "POST new design working.",
       data: saveGraphicDesign,
     });
@@ -59,7 +61,7 @@ export const get_graphicDesignByIdController = async (
     const graphicDesignById = await GraphicDesignModel.findById(req.params.id);
 
     res.status(200).json({
-      status: "Success",
+      status: successful,
       message: "GET graphic design by id works",
       data: graphicDesignById,
     });
@@ -88,8 +90,8 @@ export const edit_graphicDesignController = async (
     await editGraphicDesign.save();
 
     res.status(200).json({
-      status: "Success",
-      message: "UPDATE new design working.",
+      status: successful,
+      message: "UPDATE graphic design working.",
       data: editGraphicDesign,
     });
   } catch (err: any) {
@@ -108,8 +110,8 @@ export const delete_graphicDesignController = async (
     const deleteGraphicDesign: IGraphicDesign =
       await GraphicDesignModel.findByIdAndDelete(req.params.id);
 
-    res.status(500).json({
-      status: "Success",
+    res.status(200).json({
+      status: successful,
       message: "DELETE working",
       data: deleteGraphicDesign,
     });
