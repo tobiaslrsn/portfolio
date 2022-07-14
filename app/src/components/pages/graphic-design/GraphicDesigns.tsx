@@ -11,7 +11,7 @@ export const GraphicDesigns = () => {
   useEffect(() => {
     if (graphicDesignsList.length !== 0) return;
     getGraphicDesigns().then((response) => {
-      setGraphicDesignsList(response);
+      setGraphicDesignsList(response.data);
 
       console.log("hi", response);
     });

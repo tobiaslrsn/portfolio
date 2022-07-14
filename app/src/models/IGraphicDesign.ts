@@ -7,7 +7,7 @@ export interface IGraphicDesign {
 }
 
 export interface IGraphicDesignResponse {
-  project: IGraphicDesign[];
+  data: IGraphicDesign[];
 }
 
 export const graphicDesignsDefaultValues: IGraphicDesign = {

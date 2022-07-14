@@ -16,7 +16,7 @@ export const GraphicDesign = () => {
   useEffect(() => {
     getGraphicDesignById(params.id!)
       .then((response) => {
-        setDesign(response);
+        setDesign(response.data);
       })
       .catch((error) => {
         console.log(error);

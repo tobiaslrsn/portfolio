@@ -6,6 +6,10 @@ export interface IExtGraphicDesign {
   _id: string;
 }
 
+export interface IExtGraphicDesignResponse {
+  data: IExtGraphicDesign;
+}
+
 export const extGraphicDesignsDefaultValues: IExtGraphicDesign = {
   title: "",
   imageUrl: "",

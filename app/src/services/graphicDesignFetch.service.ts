@@ -1,15 +1,21 @@
-import { IExtGraphicDesign } from "../models/IExtGraphicDesign";
-import { IGraphicDesign } from "../models/IGraphicDesign";
+import {
+  IExtGraphicDesign,
+  IExtGraphicDesignResponse,
+} from "../models/IExtGraphicDesign";
+import {
+  IGraphicDesign,
+  IGraphicDesignResponse,
+} from "../models/IGraphicDesign";
 import { get } from "./handleRequest.service";
 
-export async function getGraphicDesigns(): Promise<IGraphicDesign[]> {
+export async function getGraphicDesigns(): Promise<IGraphicDesignResponse> {
   const response = `${process.env.REACT_APP_GRAPHIC_DESIGN_URI}`;
-  return (await get<IGraphicDesign[]>(response)).data;
+  return (await get<IGraphicDesignResponse>(response)).data;
 }
 
 export async function getGraphicDesignById(
   id: string
-): Promise<IExtGraphicDesign> {
+): Promise<IExtGraphicDesignResponse> {
   const response = `${process.env.REACT_APP_GRAPHIC_DESIGN_URI}` + id;
-  return (await get<IExtGraphicDesign>(response)).data;
+  return (await get<IExtGraphicDesignResponse>(response)).data;
 }

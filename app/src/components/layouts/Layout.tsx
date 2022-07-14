@@ -19,15 +19,7 @@ export const Layout = () => {
         <Navbar></Navbar>
       </header>
 
-      <main>
-        {isLoading ? (
-          <>
-            <Loader />
-          </>
-        ) : (
-          <Outlet></Outlet>
-        )}
-      </main>
+      <main>{isLoading ? <Loader /> : <Outlet></Outlet>}</main>
 
       <footer>
         <Footer></Footer>
