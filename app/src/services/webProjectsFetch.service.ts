@@ -1,10 +1,13 @@
-import axios from "axios";
+import { IExtWebProject } from "../models/IExtWebProject";
 import { IWebProjects } from "../models/IWebProjects";
+import { get } from "./handleRequest.service";
 
 export async function getWebProjects(): Promise<IWebProjects[]> {
-  let response = await axios.get<IWebProjects[]>(
-    "http://localhost:8080/web-development"
-  );
-  console.log("WEB PROJECTS =", response.data);
-  return response.data;
+  const response = `${process.env.REACT_APP_WEBDEV_URI}`;
+  return (await get<IWebProjects[]>(response)).data;
+}
+
+export async function getWebProjectById(id: string): Promise<IExtWebProject> {
+  const response = `${process.env.REACT_APP_WEBDEV_URI}` + id;
+  return (await get<IExtWebProject>(response)).data;
 }

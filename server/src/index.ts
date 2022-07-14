@@ -7,6 +7,7 @@ import helmet from "helmet";
 import { nextTick } from "process";
 import graphicDesignRoute from "./routes/graphicDesign.routes";
 import webDevelopmentRoute from "./routes/webDevelopment.routes";
+
 const app: any = express();
 
 app.use(helmet());

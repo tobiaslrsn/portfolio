@@ -11,6 +11,8 @@ import { ContactRoute } from "./components/routes/Contact.routes";
 import { HomeRoute } from "./components/routes/Home.routes";
 import { WebProjectsRoute } from "./components/routes/WebProjects.routes";
 import { WebProject } from "./components/pages/web-development/WebProject";
+import { GraphicDesignsRoute } from "./components/routes/GraphicDesigns.routes";
+import { GraphicDesign } from "./components/pages/graphic-design/GraphicDesign";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -25,7 +27,12 @@ root.render(
           <Route path="/about" element={<AboutRoute />}></Route>
           <Route path="/contact" element={<ContactRoute />}></Route>
           <Route path="/web-development" element={<WebProjectsRoute />}></Route>
+          <Route
+            path="/graphic-design"
+            element={<GraphicDesignsRoute />}
+          ></Route>
           <Route path="/web-development/:id" element={<WebProject />}></Route>
+          <Route path="/graphic-design/:id" element={<GraphicDesign />}></Route>
           {/* !NAVLINKS */}
           <Route path="*" element={<NotFound />}></Route>
         </Route>

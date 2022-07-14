@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import { nextTick } from "process";
 import { GraphicDesignModel } from "../models/GraphicDesign.models";
 
 export const get_graphicDesignsController = async (
@@ -29,7 +30,7 @@ export const post_newGraphicDesignController = async (
     return res.send(saveGraphicDesign);
   } catch (error: any) {
     console.log(error);
-    return res.sendStatus(500);
+    res.sendStatus(500);
   }
 };
 

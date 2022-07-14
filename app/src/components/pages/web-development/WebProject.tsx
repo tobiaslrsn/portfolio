@@ -5,6 +5,7 @@ import {
   extWebProjectDefaultValues,
   IExtWebProject,
 } from "../../../models/IExtWebProject";
+import { getWebProjectById } from "../../../services/webProjectsFetch.service";
 
 export const WebProject = () => {
   const [project, setProject] = useState<IExtWebProject>(
@@ -13,11 +14,12 @@ export const WebProject = () => {
   let params = useParams();
 
   useEffect(() => {
-    axios
-      .get<IExtWebProject>("http://localhost:8080/web-development/" + params.id)
+    getWebProjectById(params.id!) // funktionen ligger i service, skickar med id till service
       .then((response) => {
-        setProject(response.data);
-        console.log(response.data);
+        setProject(response);
+      })
+      .catch((error) => {
+        console.log(error);
       });
   }, []);
 

@@ -14,9 +14,9 @@ export const WebProjectsRender = (props: IRenderWebProject) => {
 
       {/* MAP BUILT WITH */}
       <h3>BUILT WITH:</h3>
-      {props.webProject.builtWith.map((builtWith) => {
+      {props.webProject.builtWith.map((builtWith, i) => {
         return (
-          <div>
+          <div key={i}>
             <ul>
               <li>{builtWith}</li>
             </ul>
@@ -30,7 +30,7 @@ export const WebProjectsRender = (props: IRenderWebProject) => {
       {props.webProject.imageGalleryUrl.map((imageGalleryUrl) => {
         return (
           <>
-            <ul>
+            <ul key={props.webProject.description}>
               <li>{imageGalleryUrl}</li>
             </ul>
           </>
@@ -41,7 +41,7 @@ export const WebProjectsRender = (props: IRenderWebProject) => {
       {props.webProject.responsiveImagesUrl.map((responsiveImagesUrl) => {
         return (
           <>
-            <ul>
+            <ul key={props.webProject.projectName}>
               <li>{responsiveImagesUrl}</li>
             </ul>
           </>
