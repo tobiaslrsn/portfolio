@@ -1,7 +1,8 @@
 import { Request, Response } from "express";
-import { nextTick } from "process";
-import { stringify } from "querystring";
-import { GraphicDesignModel } from "../models/GraphicDesign.models";
+import {
+  GraphicDesignModel,
+  IGraphicDesign,
+} from "../models/GraphicDesign.models";
 
 export const get_graphicDesignsController = async (
   _: Request,
@@ -9,16 +10,15 @@ export const get_graphicDesignsController = async (
 ) => {
   try {
     const graphicDesigns = await GraphicDesignModel.find();
-    //
+
     res.status(200).json({
       status: "Success",
-      message: "Get graphic designs working.",
+      message: "GET graphic designs working.",
       data: graphicDesigns,
     });
-    // return res.send(graphicDesigns);
   } catch (err: any) {
     res.status(500).json({
-      status: "Get failed",
+      status: "GET failed",
       message: err,
     });
   }
@@ -35,20 +35,18 @@ export const post_newGraphicDesignController = async (
       description: req.body.description,
       toolsUsed: req.body.toolsUsed,
     });
+
     const saveGraphicDesign = await postGraphicDesign.save();
 
-    // return res.send(saveGraphicDesign);
     res.status(201).json({
       status: "Success",
-      message: "Post new design working.",
-      data: {
-        saveGraphicDesign,
-      },
+      message: "POST new design working.",
+      data: saveGraphicDesign,
     });
-  } catch (error: any) {
+  } catch (err: any) {
     res.status(500).json({
-      status: "failed",
-      message: error,
+      status: "POST failed",
+      message: err,
     });
   }
 };
@@ -59,18 +57,16 @@ export const get_graphicDesignByIdController = async (
 ) => {
   try {
     const graphicDesignById = await GraphicDesignModel.findById(req.params.id);
-    // res.send(graphicDesignById);
+
     res.status(200).json({
       status: "Success",
-      message: "Get graphic design by id works",
+      message: "GET graphic design by id works",
       data: graphicDesignById,
     });
-  } catch (error: any) {
-    /*     console.log(error);
-    return res.sendStatus(404) && res.send(404); */
+  } catch (err: any) {
     res.status(500).json({
-      status: "Get by id failed",
-      message: error,
+      status: "GET graphic design by id failed",
+      message: err,
     });
   }
 };
@@ -83,16 +79,24 @@ export const edit_graphicDesignController = async (
     const editGraphicDesign = await GraphicDesignModel.findByIdAndUpdate(
       req.params.id
     );
+
     editGraphicDesign.title = req.body.title;
     editGraphicDesign.imageUrl = req.body.imageUrl;
     editGraphicDesign.description = req.body.description;
     editGraphicDesign.toolsUsed = req.body.toolsUsed;
 
     await editGraphicDesign.save();
-    res.sendStatus(200);
-  } catch (error: any) {
-    console.log(error);
-    res.sendStatus(500);
+
+    res.status(200).json({
+      status: "Success",
+      message: "UPDATE new design working.",
+      data: editGraphicDesign,
+    });
+  } catch (err: any) {
+    res.status(500).json({
+      status: "UPDATE failed",
+      message: err,
+    });
   }
 };
 
@@ -101,10 +105,18 @@ export const delete_graphicDesignController = async (
   res: Response
 ) => {
   try {
-    await GraphicDesignModel.findByIdAndDelete(req.params.id);
-    res.send("DELETED");
-  } catch (error: any) {
-    console.log(error);
-    res.sendStatus(500);
+    const deleteGraphicDesign: IGraphicDesign =
+      await GraphicDesignModel.findByIdAndDelete(req.params.id);
+
+    res.status(500).json({
+      status: "Success",
+      message: "DELETE working",
+      data: deleteGraphicDesign,
+    });
+  } catch (err: any) {
+    res.status(400).json({
+      status: "DELETE failed",
+      message: err,
+    });
   }
 };

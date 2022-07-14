@@ -23,7 +23,6 @@ root.render(
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomeRoute />}></Route>
-          {/* NAVLINKS */}
           <Route path="/about" element={<AboutRoute />}></Route>
           <Route path="/contact" element={<ContactRoute />}></Route>
           <Route path="/web-development" element={<WebProjectsRoute />}></Route>
@@ -31,9 +30,10 @@ root.render(
             path="/graphic-design"
             element={<GraphicDesignsRoute />}
           ></Route>
-          <Route path="/web-development/:id" element={<WebProject />}></Route>
+          <Route path="/web-development/:id" element={<WebProject />}></Route>{" "}
+          {/* dessa gör att 404 inte fungerar ordentligt. */}
           <Route path="/graphic-design/:id" element={<GraphicDesign />}></Route>
-          {/* !NAVLINKS */}
+          {/* dessa gör att 404 inte fungerar ordentligt. */}
           <Route path="*" element={<NotFound />}></Route>
         </Route>
       </Routes>
