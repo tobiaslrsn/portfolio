@@ -1,5 +1,3 @@
-import { WebProjects } from "./web-development/WebProjects";
-
 export const Contact = () => {
   return (
     <>

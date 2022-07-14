@@ -4,7 +4,6 @@ require("./db");
 import cors from "cors";
 import express from "express";
 import helmet from "helmet";
-import { nextTick } from "process";
 import graphicDesignRoute from "./routes/graphicDesign.routes";
 import webDevelopmentRoute from "./routes/webDevelopment.routes";
 
@@ -16,7 +15,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.disable("x-powered-by");
 
-// ROUTES //
 app.use("/graphic-design", graphicDesignRoute);
 app.use("/web-development", webDevelopmentRoute);
 

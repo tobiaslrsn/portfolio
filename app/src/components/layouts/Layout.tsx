@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
-import { Loader } from "../Loader";
+import { Loader } from "../misc/Loader";
 import { Footer } from "./Footer";
 import { Navbar } from "./Navbar";
 

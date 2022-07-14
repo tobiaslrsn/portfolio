@@ -10,9 +10,9 @@ import { AboutRoute } from "./components/routes/About.routes";
 import { ContactRoute } from "./components/routes/Contact.routes";
 import { HomeRoute } from "./components/routes/Home.routes";
 import { WebProjectsRoute } from "./components/routes/WebProjects.routes";
-import { WebProject } from "./components/pages/web-development/WebProject";
 import { GraphicDesignsRoute } from "./components/routes/GraphicDesigns.routes";
-import { GraphicDesign } from "./components/pages/graphic-design/GraphicDesign";
+import { ExtGraphicDesignRoute } from "./components/routes/ExtGraphicDesign.routes";
+import { ExtWebProjectRoute } from "./components/routes/ExtWebProject.routes";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -30,9 +30,15 @@ root.render(
             path="/graphic-design"
             element={<GraphicDesignsRoute />}
           ></Route>
-          <Route path="/web-development/:id" element={<WebProject />}></Route>{" "}
+          <Route
+            path="/web-development/:id"
+            element={<ExtWebProjectRoute />}
+          ></Route>{" "}
           {/* dessa gör att 404 inte fungerar ordentligt. */}
-          <Route path="/graphic-design/:id" element={<GraphicDesign />}></Route>
+          <Route
+            path="/graphic-design/:id"
+            element={<ExtGraphicDesignRoute />}
+          ></Route>
           {/* dessa gör att 404 inte fungerar ordentligt. */}
           <Route path="*" element={<NotFound />}></Route>
         </Route>

@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import {
@@ -17,6 +16,7 @@ export const WebProject = () => {
     getWebProjectById(params.id!) // funktionen ligger i service, skickar med id till service
       .then((response) => {
         setProject(response.data);
+        console.log(response);
       })
       .catch((error) => {
         console.log(error);
