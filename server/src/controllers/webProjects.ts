@@ -1,13 +1,22 @@
 import { Request, Response } from "express";
-import { WebProjectsModel } from "../models/webProjects.models";
+import { IWebProjects, WebProjectsModel } from "../models/webProjects.models";
+
+let successful: string = "Success";
 
 export const get_webProjectsController = async (_: Request, res: Response) => {
   try {
     const webProjects = await WebProjectsModel.find();
-    return res.send(webProjects);
-  } catch (error: any) {
-    console.log(error);
-    return res.sendStatus(404) && res.send(404);
+    // return res.send(webProjects);
+    res.status(200).json({
+      status: successful,
+      message: "GET web-projects working.",
+      data: webProjects,
+    });
+  } catch (err: any) {
+    res.status(500).json({
+      status: "GET failed",
+      message: err,
+    });
   }
 };
 
@@ -27,10 +36,18 @@ export const post_newWebProjectController = async (
     });
 
     const saveWebProject = await postWebProject.save();
-    return res.send(saveWebProject);
-  } catch (error: any) {
-    console.log(error);
-    return res.sendStatus(500), console.log(error);
+    // return res.send(saveWebProject);
+
+    res.status(201).json({
+      status: successful,
+      message: "POST new web-project working.",
+      data: saveWebProject,
+    });
+  } catch (err: any) {
+    res.status(500).json({
+      status: "POST failed",
+      message: err,
+    });
   }
 };
 
@@ -40,10 +57,18 @@ export const get_webProjectByIdController = async (
 ) => {
   try {
     const webProjectById = await WebProjectsModel.findById(req.params.id);
-    return res.send(webProjectById);
+    // return res.send(webProjectById);
+
+    res.status(200).json({
+      status: successful,
+      message: "GET web-project by id works.",
+      data: webProjectById,
+    });
   } catch (error: any) {
-    console.log(error);
-    return res.sendStatus(404) && res.send(404);
+    res.status(500).json({
+      status: "GET web-project by id failed.",
+      message: error,
+    });
   }
 };
 
@@ -64,10 +89,16 @@ export const edit_webProjectController = async (
     editWebProject.githubRepo = req.body.githubRepo;
 
     await editWebProject.save();
-    res.sendStatus(200);
-  } catch (error: any) {
-    console.log(error);
-    res.sendStatus(500);
+    res.status(200).json({
+      status: successful,
+      message: "UPDATE web-project working.",
+      data: editWebProject,
+    });
+  } catch (err: any) {
+    res.status(500).json({
+      status: "UPDATE failed",
+      message: err,
+    });
   }
 };
 
@@ -76,9 +107,18 @@ export const delete_webProjectController = async (
   res: Response
 ) => {
   try {
-    await WebProjectsModel.findByIdAndDelete(req.params.id);
-    res.send("DELETED");
-  } catch (error: any) {
-    console.log(error);
+    const deleteWebProject: IWebProjects =
+      await WebProjectsModel.findByIdAndDelete(req.params.id);
+
+    res.status(500).json({
+      status: successful,
+      message: "DELETE working",
+      data: deleteWebProject,
+    });
+  } catch (err: any) {
+    res.status(400).json({
+      status: "DELETE failed",
+      message: err,
+    });
   }
 };

@@ -16,7 +16,7 @@ export const WebProject = () => {
   useEffect(() => {
     getWebProjectById(params.id!) // funktionen ligger i service, skickar med id till service
       .then((response) => {
-        setProject(response);
+        setProject(response.data);
       })
       .catch((error) => {
         console.log(error);

@@ -10,11 +10,14 @@ export const GraphicDesigns = () => {
 
   useEffect(() => {
     if (graphicDesignsList.length !== 0) return;
-    getGraphicDesigns().then((response) => {
-      setGraphicDesignsList(response.data);
-
-      console.log("hi", response);
-    });
+    getGraphicDesigns()
+      .then((response) => {
+        setGraphicDesignsList(response.data);
+        console.log("hi", response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   });
 
   return (

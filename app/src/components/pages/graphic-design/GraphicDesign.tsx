@@ -17,6 +17,7 @@ export const GraphicDesign = () => {
     getGraphicDesignById(params.id!)
       .then((response) => {
         setDesign(response.data);
+        console.log(response);
       })
       .catch((error) => {
         console.log(error);
@@ -26,6 +27,16 @@ export const GraphicDesign = () => {
   return (
     <>
       <h2>{design.title}</h2>
+      <h3>{design.description}</h3>
+      {design.toolsUsed.map((toolsUsed) => {
+        return (
+          <>
+            <ul key={design._id}>
+              <li>{toolsUsed}</li>
+            </ul>
+          </>
+        );
+      })}
     </>
   );
 };

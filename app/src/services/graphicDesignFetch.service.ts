@@ -1,11 +1,5 @@
-import {
-  IExtGraphicDesign,
-  IExtGraphicDesignResponse,
-} from "../models/IExtGraphicDesign";
-import {
-  IGraphicDesign,
-  IGraphicDesignResponse,
-} from "../models/IGraphicDesign";
+import { IExtGraphicDesignResponse } from "../models/IExtGraphicDesign";
+import { IGraphicDesignResponse } from "../models/IGraphicDesign";
 import { get } from "./handleRequest.service";
 
 export async function getGraphicDesigns(): Promise<IGraphicDesignResponse> {

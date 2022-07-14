@@ -8,6 +8,9 @@ export interface IExtWebProject {
   imageGalleryUrl: [string];
   responsiveImagesUrl: [string];
 }
+export interface IExtWebProjectResponse {
+  data: IExtWebProject;
+}
 
 export const extWebProjectDefaultValues: IExtWebProject = {
   projectName: "",

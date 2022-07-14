@@ -8,11 +8,14 @@ export const WebProjects = () => {
 
   useEffect(() => {
     if (webProjectsList.length !== 0) return;
-    getWebProjects().then((response) => {
-      setWebProjectsList(response);
-
-      console.log(response);
-    });
+    getWebProjects()
+      .then((response) => {
+        setWebProjectsList(response.data);
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   });
 
   return (

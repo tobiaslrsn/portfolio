@@ -10,7 +10,7 @@ export interface IWebProjects {
 }
 
 export interface IWebProjectsResponse {
-  project: IWebProjects[];
+  data: IWebProjects[];
 }
 
 export const webProjectsDefaultValues: IWebProjects = {

@@ -8,9 +8,9 @@ export const Layout = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    /* setTimeout(() => { */
+    // setTimeout(() => {
     setIsLoading(false);
-    /* }, 3000); */
+    // }, 1000);
   }, []);
 
   return (
