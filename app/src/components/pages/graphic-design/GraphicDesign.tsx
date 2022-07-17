@@ -28,6 +28,8 @@ export const GraphicDesign = () => {
     <>
       <h2>{design.title}</h2>
       <h3>{design.description}</h3>
+      <p>{design.imageUrl}</p>
+
       {design.toolsUsed.map((toolsUsed) => {
         return (
           <>
@@ -37,6 +39,8 @@ export const GraphicDesign = () => {
           </>
         );
       })}
+
+      <></>
     </>
   );
 };
