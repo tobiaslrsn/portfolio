@@ -26,6 +26,7 @@ export const WebProject = () => {
   return (
     <>
       <h2>{project.projectName}</h2>
+      <img src={project.projectImageUrl} alt="" />
       {project.builtWith.map((builtWith) => {
         return (
           <>

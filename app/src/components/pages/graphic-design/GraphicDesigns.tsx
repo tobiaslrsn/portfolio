@@ -24,21 +24,19 @@ export const GraphicDesigns = () => {
 
   return (
     <>
-      <div className="bg-color">
-        {graphicDesignsList.map((graphicDesign, idx) => {
-          return (
-            <div
-              className="fade-graph-item"
-              style={{ animationDelay: `${200 * idx}ms` }}
-            >
-              <GraphicDesignsRender
-                graphicDesigns={graphicDesign}
-                key={graphicDesign._id}
-              ></GraphicDesignsRender>
-            </div>
-          );
-        })}
-      </div>
+      {graphicDesignsList.map((graphicDesign, idx) => {
+        return (
+          <div
+            className="fade-graph-item"
+            style={{ animationDelay: `${200 * idx}ms` }}
+          >
+            <GraphicDesignsRender
+              graphicDesigns={graphicDesign}
+              key={graphicDesign._id}
+            ></GraphicDesignsRender>
+          </div>
+        );
+      })}
     </>
   );
 };

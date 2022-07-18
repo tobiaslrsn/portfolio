@@ -59,58 +59,56 @@ export const WebProjects = () => {
 
   return (
     <>
-      <div className="bg-color">
-        <div className="sort-btn-container">
-          <button
-            className="sort-btn"
-            style={{ animationDelay: `${200}ms` }}
-            onClick={() => showAll()}
-          >
-            ALL PROJECTS
-          </button>
-          <button
-            className="sort-btn"
-            style={{ animationDelay: `${200}ms` }}
-            onClick={() => onlyVue()}
-          >
-            VUE
-          </button>
-          <button
-            className="sort-btn"
-            style={{ animationDelay: `${200}ms` }}
-            onClick={() => onlyReact()}
-          >
-            REACT
-          </button>
-          <button
-            className="sort-btn"
-            style={{ animationDelay: `${200}ms` }}
-            onClick={() => onlyNode()}
-          >
-            NODEJS
-          </button>
-          <button
-            className="sort-btn"
-            style={{ animationDelay: `${200}ms` }}
-            onClick={() => onlyMongoDb()}
-          >
-            MONGODB
-          </button>
-        </div>
-        {webProjectsList.map((webProject, idx) => {
-          return (
-            <div
-              className="fade-list-item"
-              style={{ animationDelay: `${200 * idx}ms` }}
-            >
-              <WebProjectsRender
-                webProject={webProject}
-                key={webProject._id}
-              ></WebProjectsRender>
-            </div>
-          );
-        })}
+      <div className="sort-btn-container">
+        <button
+          className="sort-btn"
+          style={{ animationDelay: `${300}ms` }}
+          onClick={() => showAll()}
+        >
+          ALL PROJECTS
+        </button>
+        <button
+          className="sort-btn"
+          style={{ animationDelay: `${200}ms` }}
+          onClick={() => onlyVue()}
+        >
+          VUE
+        </button>
+        <button
+          className="sort-btn"
+          style={{ animationDelay: `${200}ms` }}
+          onClick={() => onlyReact()}
+        >
+          REACT
+        </button>
+        <button
+          className="sort-btn"
+          style={{ animationDelay: `${200}ms` }}
+          onClick={() => onlyNode()}
+        >
+          NODEJS
+        </button>
+        <button
+          className="sort-btn"
+          style={{ animationDelay: `${200}ms` }}
+          onClick={() => onlyMongoDb()}
+        >
+          MONGODB
+        </button>
       </div>
+      {webProjectsList.map((webProject, idx) => {
+        return (
+          <div
+            className="fade-list-item"
+            style={{ animationDelay: `${200 * idx}ms` }}
+          >
+            <WebProjectsRender
+              webProject={webProject}
+              key={webProject._id}
+            ></WebProjectsRender>
+          </div>
+        );
+      })}
     </>
   );
 };

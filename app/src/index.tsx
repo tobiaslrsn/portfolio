@@ -13,6 +13,7 @@ import { WebProjectsRoute } from "./components/routes/WebProjects.routes";
 import { GraphicDesignsRoute } from "./components/routes/GraphicDesigns.routes";
 import { ExtGraphicDesignRoute } from "./components/routes/ExtGraphicDesign.routes";
 import { ExtWebProjectRoute } from "./components/routes/ExtWebProject.routes";
+import ScrollToTop from "./components/misc/ScrollToTop";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -20,29 +21,34 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<HomeRoute />}></Route>
-          <Route path="/about" element={<AboutRoute />}></Route>
-          <Route path="/contact" element={<ContactRoute />}></Route>
-          <Route path="/web-development" element={<WebProjectsRoute />}></Route>
-          <Route
-            path="/graphic-design"
-            element={<GraphicDesignsRoute />}
-          ></Route>
-          <Route
-            path="/web-development/:id"
-            element={<ExtWebProjectRoute />}
-          ></Route>{" "}
-          {/* dessa gör att 404 inte fungerar ordentligt. */}
-          <Route
-            path="/graphic-design/:id"
-            element={<ExtGraphicDesignRoute />}
-          ></Route>
-          {/* dessa gör att 404 inte fungerar ordentligt. */}
-          <Route path="*" element={<NotFound />}></Route>
-        </Route>
-      </Routes>
+      <ScrollToTop>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<HomeRoute />}></Route>
+            <Route path="/about" element={<AboutRoute />}></Route>
+            <Route path="/contact" element={<ContactRoute />}></Route>
+            <Route
+              path="/web-development"
+              element={<WebProjectsRoute />}
+            ></Route>
+            <Route
+              path="/graphic-design"
+              element={<GraphicDesignsRoute />}
+            ></Route>
+            <Route
+              path="/web-development/:id"
+              element={<ExtWebProjectRoute />}
+            ></Route>{" "}
+            {/* dessa gör att 404 inte fungerar ordentligt. */}
+            <Route
+              path="/graphic-design/:id"
+              element={<ExtGraphicDesignRoute />}
+            ></Route>
+            {/* dessa gör att 404 inte fungerar ordentligt. */}
+            <Route path="*" element={<NotFound />}></Route>
+          </Route>
+        </Routes>
+      </ScrollToTop>
     </BrowserRouter>
   </React.StrictMode>
 );

@@ -15,14 +15,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: black;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
-}
-
-.bg-color {
-  background-color: black;
-  min-height: 100vh;
 }
