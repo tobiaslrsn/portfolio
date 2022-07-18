@@ -1,7 +1,9 @@
+import "./Loader.scss";
+
 export const Loader = () => {
   return (
     <>
-      <h2>LOADING...</h2>
+      <h2 className="loading">LOADING...</h2>
     </>
   );
 };
