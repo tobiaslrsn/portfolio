@@ -5,7 +5,7 @@ import { getWebProjects } from "../../services/webProjectsFetch.service";
 import { Loader } from "../misc/Loader";
 
 import "./Home.scss";
-export const Home = () => {
+export const Home = (props) => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
