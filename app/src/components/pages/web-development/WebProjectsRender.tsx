@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { IWebProjects } from "../../../models/IWebProjects";
+import { FilterButton } from "./FilterButton";
 import "./web.scss";
 interface IRenderWebProject {
   webProject: IWebProjects;
@@ -12,6 +13,7 @@ export const WebProjectsRender = (props: IRenderWebProject) => {
 
   return (
     <>
+      <></>
       <Link to={"/web-development/" + props.webProject._id}>
         <h2>{props.webProject.projectName}</h2>
       </Link>
