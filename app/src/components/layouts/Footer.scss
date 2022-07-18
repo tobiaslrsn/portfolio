@@ -1,0 +1,20 @@
+footer {
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  border: 1px solid white;
+  border-top: 0;
+
+  height: 100px;
+
+  button {
+    border: 1px solid white;
+    outline: none;
+    padding: 0.5rem 1rem;
+    background-color: black;
+    border-radius: 2px;
+  }
+}

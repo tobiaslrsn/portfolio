@@ -3,6 +3,9 @@ import { Outlet } from "react-router-dom";
 import { Loader } from "../misc/Loader";
 import { Footer } from "./Footer";
 import { Navbar } from "./Navbar";
+import "./Navbar.scss";
+import "./Outlet.scss";
+import "./Footer.scss";
 
 export const Layout = () => {
   const [isLoading, setIsLoading] = useState(true);

@@ -1,0 +1,32 @@
+.fade-graph-item {
+  opacity: 0;
+  animation-name: fadein;
+  animation-duration: 390ms;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+  animation-delay: 100ms;
+
+  //   border: 1px solid black;
+
+  ul {
+    list-style: none;
+  }
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+    margin-left: -1rem;
+  }
+
+  100% {
+    opacity: 1;
+    margin: 0;
+  }
+}
+
+.bg-color {
+  background-color: black;
+  min-height: 100vh;
+}

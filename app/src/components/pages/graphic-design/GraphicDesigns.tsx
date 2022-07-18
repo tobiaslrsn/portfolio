@@ -3,6 +3,7 @@ import { IGraphicDesign } from "../../../models/IGraphicDesign";
 import { getGraphicDesigns } from "../../../services/graphicDesignFetch.service";
 
 import { GraphicDesignsRender } from "./GraphicDesignsRender";
+import "./Graph.scss";
 
 export const GraphicDesigns = () => {
   const [graphicDesignsList, setGraphicDesignsList] = useState<
@@ -23,14 +24,21 @@ export const GraphicDesigns = () => {
 
   return (
     <>
-      {graphicDesignsList.map((graphicDesign) => {
-        return (
-          <GraphicDesignsRender
-            graphicDesigns={graphicDesign}
-            key={graphicDesign._id}
-          ></GraphicDesignsRender>
-        );
-      })}
+      <div className="bg-color">
+        {graphicDesignsList.map((graphicDesign, idx) => {
+          return (
+            <div
+              className="fade-graph-item"
+              style={{ animationDelay: `${200 * idx}ms` }}
+            >
+              <GraphicDesignsRender
+                graphicDesigns={graphicDesign}
+                key={graphicDesign._id}
+              ></GraphicDesignsRender>
+            </div>
+          );
+        })}
+      </div>
     </>
   );
 };

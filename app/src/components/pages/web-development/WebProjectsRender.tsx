@@ -1,11 +1,15 @@
 import { Link } from "react-router-dom";
 import { IWebProjects } from "../../../models/IWebProjects";
-
+import "./web.scss";
 interface IRenderWebProject {
   webProject: IWebProjects;
 }
 
 export const WebProjectsRender = (props: IRenderWebProject) => {
+  /*   let filter = props.webProject.builtWith.filter((builtWith) =>
+    builtWith.includes("node")
+  ); */
+
   return (
     <>
       <Link to={"/web-development/" + props.webProject._id}>
@@ -45,6 +49,25 @@ export const WebProjectsRender = (props: IRenderWebProject) => {
           </>
         );
       })}
-    </>
+      <p>{props.webProject.websiteUrl}</p>
+    </> /* 
+    <>
+      {filter.map(() => {
+        return (
+          <>
+            <h3>{props.webProject.projectName}</h3>
+            {props.webProject.builtWith.map((builtWith, index) => {
+              return (
+                <>
+                  <ul>
+                    <li key={index}>{builtWith}</li>
+                  </ul>
+                </>
+              );
+            })}
+          </>
+        );
+      })}
+    </> */
   );
 };

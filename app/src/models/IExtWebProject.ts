@@ -7,6 +7,7 @@ export interface IExtWebProject {
   _id: string;
   imageGalleryUrl: [string];
   responsiveImagesUrl: [string];
+  websiteUrl: "";
 }
 export interface IExtWebProjectResponse {
   data: IExtWebProject;
@@ -21,4 +22,5 @@ export const extWebProjectDefaultValues: IExtWebProject = {
   _id: "",
   imageGalleryUrl: [""],
   responsiveImagesUrl: [""],
+  websiteUrl: "",
 };

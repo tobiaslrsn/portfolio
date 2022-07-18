@@ -10,7 +10,7 @@ export const GraphicDesignsRender = (props: IRenderGraphicDesigns) => {
   const [filterCat, setFilterCat] = useState(true);
 
   let filter = props.graphicDesigns.toolsUsed.filter((toolsUsed) =>
-    toolsUsed.includes("angular")
+    toolsUsed.includes("Illustrator" || "illustrator")
   );
 
   return (
@@ -52,6 +52,7 @@ export const GraphicDesignsRender = (props: IRenderGraphicDesigns) => {
                   </>
                 );
               })}
+
               <hr></hr>
             </>
           );

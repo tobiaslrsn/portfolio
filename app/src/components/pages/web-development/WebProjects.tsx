@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { IWebProjects } from "../../../models/IWebProjects";
 import { getWebProjects } from "../../../services/webProjectsFetch.service";
 import { WebProjectsRender } from "./WebProjectsRender";
-
+import "./web.scss";
 export const WebProjects = () => {
   const [webProjectsList, setWebProjectsList] = useState<IWebProjects[]>([]);
 
@@ -20,14 +20,21 @@ export const WebProjects = () => {
 
   return (
     <>
-      {webProjectsList.map((webProject) => {
-        return (
-          <WebProjectsRender
-            webProject={webProject}
-            key={webProject._id}
-          ></WebProjectsRender>
-        );
-      })}
+      <div className="bg-color">
+        {webProjectsList.map((webProject, idx) => {
+          return (
+            <div
+              className="fade-list-item"
+              style={{ animationDelay: `${200 * idx}ms` }}
+            >
+              <WebProjectsRender
+                webProject={webProject}
+                key={webProject._id}
+              ></WebProjectsRender>
+            </div>
+          );
+        })}
+      </div>
     </>
   );
 };

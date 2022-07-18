@@ -33,6 +33,7 @@ export const post_newWebProjectController = async (
       responsiveImagesUrl: req.body.responsiveImagesUrl,
       description: req.body.description,
       githubRepo: req.body.githubRepo,
+      websiteUrl: req.body.websiteUrl,
     });
 
     const saveWebProject = await postWebProject.save();
@@ -85,6 +86,7 @@ export const edit_webProjectController = async (
     editWebProject.responsiveImagesUrl = req.body.responsiveImagesUrl;
     editWebProject.description = req.body.description;
     editWebProject.githubRepo = req.body.githubRepo;
+    editWebProject.websiteUrl = req.body.websiteUrl;
 
     await editWebProject.save();
     res.status(200).json({

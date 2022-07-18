@@ -38,7 +38,8 @@ export const WebProject = () => {
       {project.responsiveImagesUrl.map((responsiveImagesUrl) => {
         return (
           <>
-            <img src={responsiveImagesUrl} alt="" />;
+            <img src={responsiveImagesUrl} alt="IMAGE ALT " />
+            <br />
           </>
         );
       })}

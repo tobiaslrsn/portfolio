@@ -1,0 +1,32 @@
+.box-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: -1rem;
+  flex-wrap: wrap;
+
+  .box-one {
+    width: 500px;
+    height: 300px;
+    max-width: 80vw;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem;
+  }
+  .box-two {
+    width: 350px;
+    height: 350px;
+    background-color: rgba(128, 128, 128, 0.147);
+    box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.166);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      height: 100%;
+    }
+  }
+}

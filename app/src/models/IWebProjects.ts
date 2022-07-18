@@ -7,6 +7,7 @@ export interface IWebProjects {
   _id: string;
   imageGalleryUrl: [string];
   responsiveImagesUrl: [string];
+  websiteUrl: string;
 }
 
 export interface IWebProjectsResponse {
@@ -22,4 +23,5 @@ export const webProjectsDefaultValues: IWebProjects = {
   _id: "",
   imageGalleryUrl: [""],
   responsiveImagesUrl: [""],
+  websiteUrl: "",
 };

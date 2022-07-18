@@ -8,6 +8,7 @@ export interface IWebProjects {
   responsiveImagesUrl: [string];
   description: string;
   githubRepo: string;
+  websiteUrl: string;
 }
 
 const webProjectsSchema = new mongoose.Schema<IWebProjects>({
@@ -36,6 +37,9 @@ const webProjectsSchema = new mongoose.Schema<IWebProjects>({
     type: String,
   },
   githubRepo: {
+    type: String,
+  },
+  websiteUrl: {
     type: String,
   },
 });
