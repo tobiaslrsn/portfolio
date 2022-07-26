@@ -1,40 +1,13 @@
-.fade-list-item {
-  opacity: 0;
-  animation-name: fadein;
-  animation-duration: 390ms;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-  animation-timing-function: linear;
-  animation-delay: 100ms;
-
-  padding: 1rem;
-  border-bottom: 1px solid white;
-
-  ul {
-    list-style: none;
-  }
-}
-
-@keyframes fadein {
-  0% {
-    opacity: 0;
-    margin-left: -1rem;
-  }
-
-  100% {
-    opacity: 1;
-    margin: 0;
-  }
-}
-.sort-btn-container {
+.sortBtnContainer {
   display: flex;
   justify-content: flex-end;
   gap: 2rem;
   margin-right: 2rem;
   padding-top: 1.5rem;
   align-items: center;
+  margin-bottom: 2rem;
 
-  .sort-btn {
+  .sortBtn {
     border-radius: 10px;
     padding: 0.5rem 1rem 0.5rem 1rem;
     outline: none;
@@ -63,7 +36,8 @@
       }
     }
   }
-  .sort-btn:hover {
+  .sortBtn:hover,
+  .sortBtn:focus {
     background-color: white;
     border: 1px solid gray;
     color: black;

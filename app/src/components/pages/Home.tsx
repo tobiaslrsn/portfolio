@@ -5,7 +5,7 @@ import { getWebProjects } from "../../services/webProjectsFetch.service";
 import { Loader } from "../misc/Loader";
 
 import "./Home.scss";
-export const Home = (props) => {
+export const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -22,7 +22,7 @@ export const Home = (props) => {
       <div className="start-container">
         <div className="presentation">
           <h1>TOBIAS LARSSON</h1>
-          <h5>Front end developer</h5>
+          <h5>Front end developer student</h5>
         </div>
         <div className="startpage-links">
           <h2>

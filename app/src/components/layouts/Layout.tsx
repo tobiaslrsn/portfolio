@@ -3,10 +3,9 @@ import { Outlet } from "react-router-dom";
 import { Loader } from "../misc/Loader";
 import { Footer } from "./Footer";
 import { Navbar } from "./Navbar";
-import "./Navbar.scss";
-import "./Outlet.scss";
-import "./Footer.scss";
-
+// import "./Navbar.scss";
+import outlet from "./outlet.module.scss";
+import footer from "./footer.module.scss";
 export const Layout = () => {
   const [isLoading, setIsLoading] = useState(true);
 
@@ -22,9 +21,11 @@ export const Layout = () => {
         <Navbar></Navbar>
       </header>
 
-      <main>{isLoading ? <Loader /> : <Outlet></Outlet>}</main>
+      <main className={outlet.main}>
+        {isLoading ? <Loader /> : <Outlet></Outlet>}
+      </main>
 
-      <footer>
+      <footer className={footer.container}>
         <Footer></Footer>
       </footer>
     </>

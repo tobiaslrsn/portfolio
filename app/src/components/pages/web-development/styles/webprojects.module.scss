@@ -1,0 +1,61 @@
+.fadeListItems {
+  opacity: 0;
+  animation-name: fadein;
+  animation-duration: 390ms;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+  animation-delay: 200ms;
+  width: 50vw;
+  min-width: 400px;
+  padding: 1rem;
+
+  ul {
+    list-style: none;
+  }
+}
+
+.listItems {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+    margin-left: -1rem;
+  }
+
+  100% {
+    opacity: 1;
+    margin: 0;
+  }
+}
+//
+//
+:link {
+  text-decoration: none;
+}
+.webTitle {
+  -webkit-text-stroke: 1px white;
+  -webkit-text-fill-color: transparent;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 5rem;
+  font-weight: 900;
+  // background-color: red;
+}
+
+.builtWithContainer {
+  -webkit-text-stroke: 1px red;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  -webkit-text-fill-color: transparent;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 4rem;
+  font-weight: 600;
+}

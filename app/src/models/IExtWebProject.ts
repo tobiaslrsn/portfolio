@@ -4,6 +4,8 @@ export interface IExtWebProject {
   projectImageUrl: string;
   builtWith: [string];
   description: string;
+  shortDescription: string;
+
   _id: string;
   imageGalleryUrl: [string];
   responsiveImagesUrl: [string];
@@ -19,6 +21,7 @@ export const extWebProjectDefaultValues: IExtWebProject = {
   projectImageUrl: "",
   builtWith: [""],
   description: "",
+  shortDescription: "",
   _id: "",
   imageGalleryUrl: [""],
   responsiveImagesUrl: [""],

@@ -4,6 +4,7 @@ export interface IWebProjects {
   projectImageUrl: string;
   builtWith: [string];
   description: string;
+  shortDescription: string;
   _id: string;
   imageGalleryUrl: [string];
   responsiveImagesUrl: [string];
@@ -20,6 +21,7 @@ export const webProjectsDefaultValues: IWebProjects = {
   projectImageUrl: "",
   builtWith: [""],
   description: "",
+  shortDescription: "",
   _id: "",
   imageGalleryUrl: [""],
   responsiveImagesUrl: [""],

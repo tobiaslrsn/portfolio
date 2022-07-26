@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { IWebProjects } from "../../../models/IWebProjects";
-import { FilterButton } from "./FilterButton";
-import "./web.scss";
+
+import scss from "./styles/webprojects.module.scss";
 interface IRenderWebProject {
   webProject: IWebProjects;
 }
@@ -13,23 +13,18 @@ export const WebProjectsRender = (props: IRenderWebProject) => {
 
   return (
     <>
-      <></>
       <Link to={"/web-development/" + props.webProject._id}>
-        <h2>{props.webProject.projectName}</h2>
+        <h2 className={scss.webTitle}>{props.webProject.projectName}</h2>
       </Link>
 
-      <h3>BUILT WITH:</h3>
-      {props.webProject.builtWith.map((builtWith, i) => {
-        return (
-          <div key={i}>
-            <ul>
-              <li>{builtWith}</li>
-            </ul>
-          </div>
-        );
-      })}
-      <div>{props.webProject.description}</div>
-
+      {/* <h3>BUILT WITH:</h3> */}
+      <ul className={scss.builtWithContainer}>
+        {props.webProject.builtWith.map((builtWith, i) => {
+          return <li key={i}>{builtWith}</li>;
+        })}
+      </ul>
+      <div>{props.webProject.shortDescription}</div>
+      {/* 
       <h3>IMAGE GALLERY URL</h3>
       {props.webProject.imageGalleryUrl.map((imageGalleryUrl) => {
         return (
@@ -51,7 +46,7 @@ export const WebProjectsRender = (props: IRenderWebProject) => {
           </>
         );
       })}
-      <p>{props.webProject.websiteUrl}</p>
+      <p>{props.webProject.websiteUrl}</p> */}
     </> /* 
     <>
       {filter.map(() => {

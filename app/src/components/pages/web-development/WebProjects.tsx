@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { IWebProjects } from "../../../models/IWebProjects";
 import { getWebProjects } from "../../../services/webProjectsFetch.service";
 import { WebProjectsRender } from "./WebProjectsRender";
-import "./web.scss";
+import scss from "./styles/webprojects.module.scss";
+import scssButtons from "../sortbuttons.module.scss";
 
 export const WebProjects = () => {
   const [webProjectsList, setWebProjectsList] = useState<IWebProjects[]>([]);
@@ -20,8 +21,9 @@ export const WebProjects = () => {
         console.log(error);
       });
   });
+
   /* Find cleaner solution! */
-  const onlyVue = (): void => {
+  /* const onlyVue = (): void => {
     const copy: IWebProjects[] = [...defaultList];
     const filteredCopy: IWebProjects[] = copy.filter((item) =>
       item.builtWith.includes("vue")
@@ -34,6 +36,7 @@ export const WebProjects = () => {
 
     setWebProjectsList(copy);
   };
+
   const onlyReact = (): void => {
     const copy: IWebProjects[] = [...defaultList];
     const filteredCopy: IWebProjects[] = copy.filter((item) =>
@@ -41,6 +44,7 @@ export const WebProjects = () => {
     );
     setWebProjectsList(filteredCopy);
   };
+
   const onlyNode = (): void => {
     const copy: IWebProjects[] = [...defaultList];
     const filteredCopy: IWebProjects[] = copy.filter((item) =>
@@ -55,60 +59,69 @@ export const WebProjects = () => {
       item.builtWith.includes("mongoDB")
     );
     setWebProjectsList(filteredCopy);
+  }; */
+
+  /* FOUND IT! */
+  const filterByBuiltWith = (category: string) => {
+    const copy: IWebProjects[] = [...defaultList];
+    const filteredCopy: IWebProjects[] = copy.filter((item) =>
+      item.builtWith.includes(category)
+    );
+    setWebProjectsList(filteredCopy);
   };
 
   return (
     <>
-      <div className="sort-btn-container">
+      <div
+        className={scssButtons.sortBtnContainer}
+        style={{ animationDelay: `${300}ms` }}
+      >
         <button
-          className="sort-btn"
-          style={{ animationDelay: `${300}ms` }}
-          onClick={() => showAll()}
+          className={scssButtons.sortBtn}
+          onClick={() => filterByBuiltWith("")}
         >
           ALL PROJECTS
         </button>
         <button
-          className="sort-btn"
-          style={{ animationDelay: `${200}ms` }}
-          onClick={() => onlyVue()}
+          className={scssButtons.sortBtn}
+          onClick={() => filterByBuiltWith("vue" || "Vue")}
         >
           VUE
         </button>
         <button
-          className="sort-btn"
-          style={{ animationDelay: `${200}ms` }}
-          onClick={() => onlyReact()}
+          className={scssButtons.sortBtn}
+          onClick={() => filterByBuiltWith("react" || "React")}
         >
           REACT
         </button>
         <button
-          className="sort-btn"
-          style={{ animationDelay: `${200}ms` }}
-          onClick={() => onlyNode()}
+          className={scssButtons.sortBtn}
+          onClick={() => filterByBuiltWith("nodeJS" || "node" || "Node")}
         >
           NODEJS
         </button>
         <button
-          className="sort-btn"
-          style={{ animationDelay: `${200}ms` }}
-          onClick={() => onlyMongoDb()}
+          className={scssButtons.sortBtn}
+          onClick={() => filterByBuiltWith("mongoDB" || "mongoDb" || "mongodb")}
         >
           MONGODB
         </button>
       </div>
-      {webProjectsList.map((webProject, idx) => {
-        return (
-          <div
-            className="fade-list-item"
-            style={{ animationDelay: `${200 * idx}ms` }}
-          >
-            <WebProjectsRender
-              webProject={webProject}
-              key={webProject._id}
-            ></WebProjectsRender>
-          </div>
-        );
-      })}
+      <div className={scss.listItems}>
+        {webProjectsList.map((webProject, idx) => {
+          return (
+            <div
+              className={scss.fadeListItems}
+              style={{ animationDelay: `${200 * idx}ms` }}
+            >
+              <WebProjectsRender
+                webProject={webProject}
+                key={webProject._id}
+              ></WebProjectsRender>
+            </div>
+          );
+        })}
+      </div>
     </>
   );
 };

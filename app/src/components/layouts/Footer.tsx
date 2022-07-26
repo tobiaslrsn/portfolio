@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import scss from "./footer.module.scss";
 export const Footer = () => {
   const [showTopBtn, setShowTopBtn] = useState(false);
 
@@ -21,7 +21,24 @@ export const Footer = () => {
 
   return (
     <>
-      <div>{showTopBtn && <button onClick={goToTop}>GO TO TOP</button>}</div>
+      <div>
+        {showTopBtn && (
+          <button onClick={goToTop} className={scss.scrolltotop}>
+            GO TO TOP
+          </button>
+        )}
+      </div>
+
+      <div className={scss.social}>
+        <a href="https://www.instagram.com/tobiaslrsn/" target="_blank">
+          INSTAGRAM
+        </a>
+        <a href="https://github.com/tobiaslrsn">GITHUB</a>
+        <a href="https://www.linkedin.com/in/tobiaslrsn/" target="_blank">
+          LINKEDIN
+        </a>
+        <p>EMAIL</p> {/* COPY TO CLIPBOARD HOVER MESSAGE? */}
+      </div>
     </>
   );
 };

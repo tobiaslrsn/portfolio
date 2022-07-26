@@ -4,17 +4,19 @@ import { getGraphicDesigns } from "../../../services/graphicDesignFetch.service"
 
 import { GraphicDesignsRender } from "./GraphicDesignsRender";
 import "./Graph.scss";
-
+import scssButtons from "../sortbuttons.module.scss";
 export const GraphicDesigns = () => {
   const [graphicDesignsList, setGraphicDesignsList] = useState<
     IGraphicDesign[]
   >([]);
+  const [defaultList, setDefaultList] = useState<IGraphicDesign[]>([]);
 
   useEffect(() => {
-    if (graphicDesignsList.length !== 0) return;
+    if (graphicDesignsList.length && defaultList.length !== 0) return;
     getGraphicDesigns()
       .then((response) => {
         setGraphicDesignsList(response.data);
+        setDefaultList(response.data);
         console.log("hi", response);
       })
       .catch((error) => {
@@ -22,8 +24,40 @@ export const GraphicDesigns = () => {
       });
   });
 
+  const showAll = (): void => {
+    const copy: IGraphicDesign[] = [...defaultList];
+
+    setGraphicDesignsList(copy);
+  };
+  const onlyFigma = (): void => {
+    const copy: IGraphicDesign[] = [...defaultList];
+    const filteredCopy: IGraphicDesign[] = copy.filter((item) =>
+      item.toolsUsed.includes("Figma")
+    );
+
+    setGraphicDesignsList(filteredCopy);
+  };
+
   return (
     <>
+      <div
+        className={scssButtons.sortBtnContainer}
+        style={{ animationDelay: `${300}ms` }}
+      >
+        <button className={scssButtons.sortBtn} onClick={() => showAll()}>
+          ALL PROJECTS
+        </button>
+
+        <button className={scssButtons.sortBtn} onClick={() => onlyFigma()}>
+          ILLUSTRATIONS
+        </button>
+        <button className={scssButtons.sortBtn} onClick={() => showAll()}>
+          GRAPHIC DESIGN
+        </button>
+        <button className={scssButtons.sortBtn} onClick={() => showAll()}>
+          MISC.
+        </button>
+      </div>
       {graphicDesignsList.map((graphicDesign, idx) => {
         return (
           <div

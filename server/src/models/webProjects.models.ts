@@ -7,6 +7,7 @@ export interface IWebProjects {
   imageGalleryUrl: [string];
   responsiveImagesUrl: [string];
   description: string;
+  shortDescription: string;
   githubRepo: string;
   websiteUrl: string;
 }
@@ -34,6 +35,9 @@ const webProjectsSchema = new mongoose.Schema<IWebProjects>({
     },
   ],
   description: {
+    type: String,
+  },
+  shortDescription: {
     type: String,
   },
   githubRepo: {

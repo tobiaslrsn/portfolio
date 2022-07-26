@@ -5,7 +5,7 @@ import {
   IExtWebProject,
 } from "../../../models/IExtWebProject";
 import { getWebProjectById } from "../../../services/webProjectsFetch.service";
-
+import "./styles/webproject.scss";
 export const WebProject = () => {
   const [project, setProject] = useState<IExtWebProject>(
     extWebProjectDefaultValues
@@ -25,25 +25,42 @@ export const WebProject = () => {
 
   return (
     <>
-      <h2>{project.projectName}</h2>
-      <img src={project.projectImageUrl} alt="" />
-      {project.builtWith.map((builtWith) => {
-        return (
-          <>
-            <ul>
-              <li>{builtWith}</li>
+      <div className="center-project">
+        <div className="project-description">
+          <img src={project.projectImageUrl} alt="" className="project-image" />
+          <div className="flex-it">
+            <h2>{project.projectName}</h2>
+            <span>{project.description}</span>
+            <ul className="built-with">
+              {project.builtWith.map((builtWith) => {
+                return (
+                  <>
+                    <li>{builtWith}</li>
+                  </>
+                );
+              })}
             </ul>
-          </>
-        );
-      })}
-      {project.responsiveImagesUrl.map((responsiveImagesUrl) => {
-        return (
-          <>
-            <img src={responsiveImagesUrl} alt="IMAGE ALT " />
-            <br />
-          </>
-        );
-      })}
+            <a href={project.githubRepo}>GITHUB</a>
+            <a href={project.websiteUrl} target="_blank">
+              VISIT
+            </a>
+          </div>
+        </div>
+        <div className="display-row">
+          {project.responsiveImagesUrl.map((responsiveImagesUrl) => {
+            return (
+              <>
+                <img
+                  src={responsiveImagesUrl}
+                  alt="IMAGE ALT "
+                  className="responsive-gallery"
+                />
+                <br />
+              </>
+            );
+          })}
+        </div>
+      </div>
     </>
   );
 };

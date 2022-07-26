@@ -1,5 +1,5 @@
 import { WebProject } from "./WebProject";
 
-export const FilterButton = () => {
+export const WebProjectFilterButtons = () => {
   return <></>;
 };

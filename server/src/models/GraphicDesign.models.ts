@@ -5,6 +5,7 @@ export interface IGraphicDesign {
   imageUrl: string;
   description: string;
   toolsUsed: [string];
+  category: [""];
 }
 
 const graphicDesignSchema = new mongoose.Schema<IGraphicDesign>({
@@ -18,6 +19,11 @@ const graphicDesignSchema = new mongoose.Schema<IGraphicDesign>({
     type: String,
   },
   toolsUsed: [
+    {
+      type: String,
+    },
+  ],
+  category: [
     {
       type: String,
     },

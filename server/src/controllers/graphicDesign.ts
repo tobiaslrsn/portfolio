@@ -34,6 +34,7 @@ export const post_newGraphicDesignController = async (
       imageUrl: req.body.imageUrl,
       description: req.body.description,
       toolsUsed: req.body.toolsUsed,
+      category: req.body.category,
     });
 
     const saveGraphicDesign = await postGraphicDesign.save();
@@ -84,6 +85,7 @@ export const edit_graphicDesignController = async (
     editGraphicDesign.imageUrl = req.body.imageUrl;
     editGraphicDesign.description = req.body.description;
     editGraphicDesign.toolsUsed = req.body.toolsUsed;
+    editGraphicDesign.category = req.body.category;
 
     await editGraphicDesign.save();
 
