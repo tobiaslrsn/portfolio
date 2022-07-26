@@ -1,3 +1,5 @@
+@use "../styles/mixin.scss" as mixin;
+
 .wrapper {
   position: fixed;
   top: 0;
@@ -35,6 +37,10 @@
   /* background: linear-gradient(375deg, #1cc7d0, #2ede98); */
   /* background: linear-gradient(-45deg, #e3eefe 0%, #efddfb 100%); */
   transition: all 0.3s ease-in-out;
+
+  @include mixin.desktop {
+    display: none;
+  }
 }
 .menuBtn span,
 .menuBtn:before,

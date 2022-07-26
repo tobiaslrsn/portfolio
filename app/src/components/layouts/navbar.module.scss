@@ -7,10 +7,6 @@
   justify-content: flex-start;
   align-items: center;
 
-  @include mixin.mobile {
-    display: none;
-  }
-
   .logo {
     width: 30%;
     min-width: 200px;
@@ -36,7 +32,7 @@
     justify-content: center;
     align-items: center;
 
-    @include mixin.desktop {
+    @include mixin.mobile {
       display: none;
     }
   }
@@ -54,6 +50,10 @@
     justify-content: space-evenly;
     align-items: center;
     border: 3px solid white;
+
+    @include mixin.mobile {
+      display: none;
+    }
 
     :link {
       text-decoration: none;

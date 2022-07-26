@@ -1,13 +1,13 @@
 $color-red: red;
 
 @mixin mobile {
-  @media screen and (min-width: 500) {
+  @media screen and (max-width: 599px) {
     @content;
   }
 }
 
 @mixin desktop {
-  @media screen and (max-width: 992px) {
+  @media screen and (min-width: 992px) {
     @content;
   }
 }

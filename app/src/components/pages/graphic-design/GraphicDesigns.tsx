@@ -24,17 +24,11 @@ export const GraphicDesigns = () => {
       });
   });
 
-  const showAll = (): void => {
+  const filterByToolsUsed = (tools: string) => {
     const copy: IGraphicDesign[] = [...defaultList];
-
-    setGraphicDesignsList(copy);
-  };
-  const onlyFigma = (): void => {
-    const copy: IGraphicDesign[] = [...defaultList];
-    const filteredCopy: IGraphicDesign[] = copy.filter((item) =>
-      item.toolsUsed.includes("Figma")
+    const filteredCopy: IGraphicDesign[] = copy.filter((i) =>
+      i.toolsUsed.includes(tools)
     );
-
     setGraphicDesignsList(filteredCopy);
   };
 
@@ -44,18 +38,23 @@ export const GraphicDesigns = () => {
         className={scssButtons.sortBtnContainer}
         style={{ animationDelay: `${300}ms` }}
       >
-        <button className={scssButtons.sortBtn} onClick={() => showAll()}>
+        <button
+          className={scssButtons.sortBtn}
+          onClick={() => filterByToolsUsed("")}
+        >
           ALL PROJECTS
         </button>
-
-        <button className={scssButtons.sortBtn} onClick={() => onlyFigma()}>
-          ILLUSTRATIONS
+        <button
+          className={scssButtons.sortBtn}
+          onClick={() => filterByToolsUsed("photoshop")}
+        >
+          Photoshop
         </button>
-        <button className={scssButtons.sortBtn} onClick={() => showAll()}>
-          GRAPHIC DESIGN
-        </button>
-        <button className={scssButtons.sortBtn} onClick={() => showAll()}>
-          MISC.
+        <button
+          className={scssButtons.sortBtn}
+          onClick={() => filterByToolsUsed("illustrator")}
+        >
+          Illustrator
         </button>
       </div>
       {graphicDesignsList.map((graphicDesign, idx) => {

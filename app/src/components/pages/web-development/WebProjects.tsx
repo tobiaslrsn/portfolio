@@ -22,50 +22,10 @@ export const WebProjects = () => {
       });
   });
 
-  /* Find cleaner solution! */
-  /* const onlyVue = (): void => {
-    const copy: IWebProjects[] = [...defaultList];
-    const filteredCopy: IWebProjects[] = copy.filter((item) =>
-      item.builtWith.includes("vue")
-    );
-    setWebProjectsList(filteredCopy);
-  };
-
-  const showAll = (): void => {
-    const copy: IWebProjects[] = [...defaultList];
-
-    setWebProjectsList(copy);
-  };
-
-  const onlyReact = (): void => {
-    const copy: IWebProjects[] = [...defaultList];
-    const filteredCopy: IWebProjects[] = copy.filter((item) =>
-      item.builtWith.includes("react")
-    );
-    setWebProjectsList(filteredCopy);
-  };
-
-  const onlyNode = (): void => {
-    const copy: IWebProjects[] = [...defaultList];
-    const filteredCopy: IWebProjects[] = copy.filter((item) =>
-      item.builtWith.includes("node")
-    );
-    setWebProjectsList(filteredCopy);
-  };
-
-  const onlyMongoDb = (): void => {
-    const copy: IWebProjects[] = [...defaultList];
-    const filteredCopy: IWebProjects[] = copy.filter((item) =>
-      item.builtWith.includes("mongoDB")
-    );
-    setWebProjectsList(filteredCopy);
-  }; */
-
-  /* FOUND IT! */
   const filterByBuiltWith = (category: string) => {
     const copy: IWebProjects[] = [...defaultList];
-    const filteredCopy: IWebProjects[] = copy.filter((item) =>
-      item.builtWith.includes(category)
+    const filteredCopy: IWebProjects[] = copy.filter((i) =>
+      i.builtWith.includes(category)
     );
     setWebProjectsList(filteredCopy);
   };
@@ -84,25 +44,25 @@ export const WebProjects = () => {
         </button>
         <button
           className={scssButtons.sortBtn}
-          onClick={() => filterByBuiltWith("vue" || "Vue")}
+          onClick={() => filterByBuiltWith("vue")}
         >
           VUE
         </button>
         <button
           className={scssButtons.sortBtn}
-          onClick={() => filterByBuiltWith("react" || "React")}
+          onClick={() => filterByBuiltWith("react")}
         >
           REACT
         </button>
         <button
           className={scssButtons.sortBtn}
-          onClick={() => filterByBuiltWith("nodeJS" || "node" || "Node")}
+          onClick={() => filterByBuiltWith("nodeJS")}
         >
           NODEJS
         </button>
         <button
           className={scssButtons.sortBtn}
-          onClick={() => filterByBuiltWith("mongoDB" || "mongoDb" || "mongodb")}
+          onClick={() => filterByBuiltWith("mongoDB")}
         >
           MONGODB
         </button>
