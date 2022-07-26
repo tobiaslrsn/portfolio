@@ -46,13 +46,13 @@ export const GraphicDesigns = () => {
         </button>
         <button
           className={scssButtons.sortBtn}
-          onClick={() => filterByToolsUsed("photoshop")}
+          onClick={() => filterByToolsUsed("Photoshop")}
         >
           Photoshop
         </button>
         <button
           className={scssButtons.sortBtn}
-          onClick={() => filterByToolsUsed("illustrator")}
+          onClick={() => filterByToolsUsed("Illustrator")}
         >
           Illustrator
         </button>
