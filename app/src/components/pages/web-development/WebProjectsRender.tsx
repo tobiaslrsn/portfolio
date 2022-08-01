@@ -6,28 +6,13 @@ interface IRenderWebProject {
   webProject: IWebProjects;
 }
 
-interface IFilterButtons {
-  filterByBuiltWith(i: number): void;
-}
-
-export const WebProjectsRender = (
-  props: IRenderWebProject,
-  filter: IFilterButtons
-) => {
-  /*   let filter = props.webProject.builtWith.filter((builtWith) =>
-    builtWith.includes("node")
-  ); */
-  const filterStuff = (i: number) => {
-    filter.filterByBuiltWith(i);
-  };
-
+export const WebProjectsRender = (props: IRenderWebProject) => {
   return (
     <>
       <Link to={"/web-development/" + props.webProject._id}>
         <h2 className={scss.webTitle}>{props.webProject.projectName}</h2>
       </Link>
 
-      {/* <h3>BUILT WITH:</h3> */}
       <ul className={scss.builtWithContainer}>
         {props.webProject.builtWith.map((builtWith, i) => {
           return <li key={i}>{builtWith}</li>;

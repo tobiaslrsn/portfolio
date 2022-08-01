@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { IGraphicDesign } from "../../../models/IGraphicDesign";
 import { getGraphicDesigns } from "../../../services/graphicDesignFetch.service";
-
 import { GraphicDesignsRender } from "./GraphicDesignsRender";
 import "./Graph.scss";
-import scssButtons from "../sortbuttons.module.scss";
+import { GraphicDesignFilterButtons } from "./GraphicDesignFilterButtons";
+
 export const GraphicDesigns = () => {
   const [graphicDesignsList, setGraphicDesignsList] = useState<
     IGraphicDesign[]
@@ -34,38 +34,19 @@ export const GraphicDesigns = () => {
 
   return (
     <>
-      <div
-        className={scssButtons.sortBtnContainer}
-        style={{ animationDelay: `${300}ms` }}
-      >
-        <button
-          className={scssButtons.sortBtn}
-          onClick={() => filterByToolsUsed("")}
-        >
-          ALL PROJECTS
-        </button>
-        <button
-          className={scssButtons.sortBtn}
-          onClick={() => filterByToolsUsed("Photoshop")}
-        >
-          Photoshop
-        </button>
-        <button
-          className={scssButtons.sortBtn}
-          onClick={() => filterByToolsUsed("Illustrator")}
-        >
-          Illustrator
-        </button>
-      </div>
+      <GraphicDesignFilterButtons
+        filterByToolsUsed={filterByToolsUsed}
+      ></GraphicDesignFilterButtons>
+
       {graphicDesignsList.map((graphicDesign, idx) => {
         return (
           <div
+            key={graphicDesign._id}
             className="fade-graph-item"
             style={{ animationDelay: `${200 * idx}ms` }}
           >
             <GraphicDesignsRender
               graphicDesigns={graphicDesign}
-              key={graphicDesign._id}
             ></GraphicDesignsRender>
           </div>
         );

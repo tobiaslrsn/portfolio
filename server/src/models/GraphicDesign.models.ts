@@ -21,11 +21,13 @@ const graphicDesignSchema = new mongoose.Schema<IGraphicDesign>({
   toolsUsed: [
     {
       type: String,
+      lowercase: true,
     },
   ],
   category: [
     {
       type: String,
+      lowercase: true,
     },
   ],
 });

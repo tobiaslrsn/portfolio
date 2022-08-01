@@ -3,7 +3,7 @@ import { IWebProjects } from "../../../models/IWebProjects";
 import { getWebProjects } from "../../../services/webProjectsFetch.service";
 import { WebProjectsRender } from "./WebProjectsRender";
 import scss from "./styles/webprojects.module.scss";
-import scssButtons from "../sortbuttons.module.scss";
+
 import { WebProjectFilterButtons } from "./WebProjectFilterButtons";
 
 export const WebProjects = () => {
@@ -36,10 +36,12 @@ export const WebProjects = () => {
       <WebProjectFilterButtons
         filterByBuiltWith={filterByBuiltWith}
       ></WebProjectFilterButtons>
+
       <div className={scss.listItems}>
         {webProjectsList.map((webProject, idx) => {
           return (
             <div
+              key={webProject._id}
               className={scss.fadeListItems}
               style={{ animationDelay: `${200 * idx}ms` }}
             >

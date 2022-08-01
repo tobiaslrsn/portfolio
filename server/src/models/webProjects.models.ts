@@ -19,6 +19,7 @@ const webProjectsSchema = new mongoose.Schema<IWebProjects>({
   builtWith: [
     {
       type: String,
+      lowercase: true,
     },
   ],
   projectImageUrl: {

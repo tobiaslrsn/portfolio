@@ -6,6 +6,7 @@ import {
 } from "../../../models/IExtWebProject";
 import { getWebProjectById } from "../../../services/webProjectsFetch.service";
 import "./styles/webproject.scss";
+
 export const WebProject = () => {
   const [project, setProject] = useState<IExtWebProject>(
     extWebProjectDefaultValues
@@ -21,13 +22,17 @@ export const WebProject = () => {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  });
 
   return (
     <>
       <div className="center-project">
         <div className="project-description">
-          <img src={project.projectImageUrl} alt="" className="project-image" />
+          <img
+            src={project.projectImageUrl}
+            alt="Project"
+            className="project-image"
+          />
           <div className="flex-it">
             <h2>{project.projectName}</h2>
             <span>{project.description}</span>
@@ -35,15 +40,13 @@ export const WebProject = () => {
               {project.builtWith.map((builtWith) => {
                 return (
                   <>
-                    <li>{builtWith}</li>
+                    <li key={project._id}>{builtWith}</li>
                   </>
                 );
               })}
             </ul>
             <a href={project.githubRepo}>GITHUB</a>
-            <a href={project.websiteUrl} target="_blank">
-              VISIT
-            </a>
+            <a href={project.websiteUrl} /* target="_blank" rel="" */>VISIT</a>
           </div>
         </div>
         <div className="display-row">
@@ -51,8 +54,9 @@ export const WebProject = () => {
             return (
               <>
                 <img
+                  key={project._id}
                   src={responsiveImagesUrl}
-                  alt="IMAGE ALT "
+                  alt="Responsive gallery"
                   className="responsive-gallery"
                 />
                 <br />

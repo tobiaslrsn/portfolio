@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import scss from "./footer.module.scss";
+
 export const Footer = () => {
   const [showTopBtn, setShowTopBtn] = useState(false);
 
