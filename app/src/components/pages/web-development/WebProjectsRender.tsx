@@ -6,10 +6,20 @@ interface IRenderWebProject {
   webProject: IWebProjects;
 }
 
-export const WebProjectsRender = (props: IRenderWebProject) => {
+interface IFilterButtons {
+  filterByBuiltWith(i: number): void;
+}
+
+export const WebProjectsRender = (
+  props: IRenderWebProject,
+  filter: IFilterButtons
+) => {
   /*   let filter = props.webProject.builtWith.filter((builtWith) =>
     builtWith.includes("node")
   ); */
+  const filterStuff = (i: number) => {
+    filter.filterByBuiltWith(i);
+  };
 
   return (
     <>

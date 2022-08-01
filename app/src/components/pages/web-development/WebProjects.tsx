@@ -4,6 +4,7 @@ import { getWebProjects } from "../../../services/webProjectsFetch.service";
 import { WebProjectsRender } from "./WebProjectsRender";
 import scss from "./styles/webprojects.module.scss";
 import scssButtons from "../sortbuttons.module.scss";
+import { WebProjectFilterButtons } from "./WebProjectFilterButtons";
 
 export const WebProjects = () => {
   const [webProjectsList, setWebProjectsList] = useState<IWebProjects[]>([]);
@@ -32,41 +33,9 @@ export const WebProjects = () => {
 
   return (
     <>
-      <div
-        className={scssButtons.sortBtnContainer}
-        style={{ animationDelay: `${300}ms` }}
-      >
-        <button
-          className={scssButtons.sortBtn}
-          onClick={() => filterByBuiltWith("")}
-        >
-          ALL PROJECTS
-        </button>
-        <button
-          className={scssButtons.sortBtn}
-          onClick={() => filterByBuiltWith("vue")}
-        >
-          VUE
-        </button>
-        <button
-          className={scssButtons.sortBtn}
-          onClick={() => filterByBuiltWith("react")}
-        >
-          REACT
-        </button>
-        <button
-          className={scssButtons.sortBtn}
-          onClick={() => filterByBuiltWith("nodeJS")}
-        >
-          NODEJS
-        </button>
-        <button
-          className={scssButtons.sortBtn}
-          onClick={() => filterByBuiltWith("mongoDB")}
-        >
-          MONGODB
-        </button>
-      </div>
+      <WebProjectFilterButtons
+        filterByBuiltWith={filterByBuiltWith}
+      ></WebProjectFilterButtons>
       <div className={scss.listItems}>
         {webProjectsList.map((webProject, idx) => {
           return (
