@@ -25,26 +25,20 @@ root.render(
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<HomeRoute />}></Route>
+
             <Route path="/about" element={<AboutRoute />}></Route>
             <Route path="/contact" element={<ContactRoute />}></Route>
-            <Route
-              path="/web-development"
-              element={<WebProjectsRoute />}
-            ></Route>
-            <Route
-              path="/graphic-design"
-              element={<GraphicDesignsRoute />}
-            ></Route>
-            <Route
-              path="/web-development/:id"
-              element={<ExtWebProjectRoute />}
-            ></Route>{" "}
-            {/* dessa gör att 404 inte fungerar ordentligt. */}
-            <Route
-              path="/graphic-design/:id"
-              element={<ExtGraphicDesignRoute />}
-            ></Route>
-            {/* dessa gör att 404 inte fungerar ordentligt. */}
+
+            <Route path="/web-development">
+              <Route index element={<WebProjectsRoute />}></Route>
+              <Route path=":id" element={<ExtWebProjectRoute />}></Route>
+            </Route>
+
+            <Route path="/graphic-design">
+              <Route index element={<GraphicDesignsRoute />}></Route>
+              <Route path=":id" element={<ExtGraphicDesignRoute />}></Route>
+            </Route>
+
             <Route path="*" element={<NotFound />}></Route>
           </Route>
         </Routes>
@@ -53,7 +47,4 @@ root.render(
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

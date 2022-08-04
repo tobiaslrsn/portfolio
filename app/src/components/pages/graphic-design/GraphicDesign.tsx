@@ -22,7 +22,7 @@ export const GraphicDesign = () => {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [params.id]);
 
   return (
     <>
@@ -30,11 +30,11 @@ export const GraphicDesign = () => {
       <h3>{design.description}</h3>
       <p>{design.imageUrl}</p>
 
-      {design.toolsUsed.map((toolsUsed) => {
+      {design.toolsUsed.map((toolsUsed, i) => {
         return (
           <>
-            <ul key={design._id}>
-              <li>{toolsUsed}</li>
+            <ul>
+              <li key={i}>{toolsUsed}</li>
             </ul>
           </>
         );

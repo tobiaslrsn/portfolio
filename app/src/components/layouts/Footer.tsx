@@ -31,11 +31,19 @@ export const Footer = () => {
       </div>
 
       <div className={scss.social}>
-        <a href="https://www.instagram.com/tobiaslrsn/" target="_blank">
+        <a
+          href="https://www.instagram.com/tobiaslrsn/"
+          target="_blank"
+          rel="noreferrer"
+        >
           INSTAGRAM
         </a>
         <a href="https://github.com/tobiaslrsn">GITHUB</a>
-        <a href="https://www.linkedin.com/in/tobiaslrsn/" target="_blank">
+        <a
+          href="https://www.linkedin.com/in/tobiaslrsn/"
+          target="_blank"
+          rel="noreferrer"
+        >
           LINKEDIN
         </a>
         <p>EMAIL</p> {/* COPY TO CLIPBOARD HOVER MESSAGE? */}

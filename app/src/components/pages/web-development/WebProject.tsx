@@ -37,10 +37,10 @@ export const WebProject = () => {
             <h2>{project.projectName}</h2>
             <span>{project.description}</span>
             <ul className="built-with">
-              {project.builtWith.map((builtWith) => {
+              {project.builtWith.map((builtWith, i) => {
                 return (
                   <>
-                    <li key={project._id}>{builtWith}</li>
+                    <li key={i}>{builtWith}</li>
                   </>
                 );
               })}
