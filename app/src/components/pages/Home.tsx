@@ -1,19 +1,9 @@
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getGraphicDesigns } from "../../services/graphicDesignFetch.service";
 import { getWebProjects } from "../../services/webProjectsFetch.service";
-import { Loader } from "../misc/Loader";
 
 import "./Home.scss";
 export const Home = () => {
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    // setTimeout(() => {
-    setIsLoading(false);
-    // }, 1000);
-  }, []);
-
   getWebProjects();
   getGraphicDesigns();
 
@@ -37,19 +27,13 @@ export const Home = () => {
           </h2>
         </div>
 
-        {isLoading ? (
-          <>
-            <Loader />
-          </>
-        ) : (
-          <>
-            <img
-              className="background"
-              src={`${process.env.PUBLIC_URL}/the_fall_of_phaeton_1990.1.1.jpg`}
-              alt=""
-            />
-          </>
-        )}
+        <>
+          <img
+            className="background"
+            src={`${process.env.PUBLIC_URL}/the_fall_of_phaeton_1990.1.1.jpg`}
+            alt=""
+          />
+        </>
       </div>
     </>
   );

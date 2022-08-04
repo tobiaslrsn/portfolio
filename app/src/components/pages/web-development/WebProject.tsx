@@ -46,7 +46,7 @@ export const WebProject = () => {
               })}
             </ul>
             <a href={project.githubRepo}>GITHUB</a>
-            <a href={project.websiteUrl} /* target="_blank" rel="" */>VISIT</a>
+            <a href={project.websiteUrl}>VISIT</a>
           </div>
         </div>
         <div className="display-row">

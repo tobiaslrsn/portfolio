@@ -19,47 +19,6 @@ export const WebProjectsRender = (props: IRenderWebProject) => {
         })}
       </ul>
       <div>{props.webProject.shortDescription}</div>
-      {/* 
-      <h3>IMAGE GALLERY URL</h3>
-      {props.webProject.imageGalleryUrl.map((imageGalleryUrl) => {
-        return (
-          <>
-            <ul key={props.webProject.description}>
-              <li>{imageGalleryUrl}</li>
-            </ul>
-          </>
-        );
-      })}
-
-      <h3>RESPONSIVE IMAGES URL</h3>
-      {props.webProject.responsiveImagesUrl.map((responsiveImagesUrl) => {
-        return (
-          <>
-            <ul key={props.webProject.projectName}>
-              <li>{responsiveImagesUrl}</li>
-            </ul>
-          </>
-        );
-      })}
-      <p>{props.webProject.websiteUrl}</p> */}
-    </> /* 
-    <>
-      {filter.map(() => {
-        return (
-          <>
-            <h3>{props.webProject.projectName}</h3>
-            {props.webProject.builtWith.map((builtWith, index) => {
-              return (
-                <>
-                  <ul>
-                    <li key={index}>{builtWith}</li>
-                  </ul>
-                </>
-              );
-            })}
-          </>
-        );
-      })}
-    </> */
+    </>
   );
 };
