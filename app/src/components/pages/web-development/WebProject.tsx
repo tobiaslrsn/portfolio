@@ -5,7 +5,7 @@ import {
   IExtWebProject,
 } from "../../../models/IExtWebProject";
 import { getWebProjectById } from "../../../services/webProjectsFetch.service";
-import "./styles/webproject.scss";
+import scss from "./styles/webproject.module.scss";
 
 export const WebProject = () => {
   const [project, setProject] = useState<IExtWebProject>(
@@ -26,21 +26,27 @@ export const WebProject = () => {
 
   return (
     <>
-      <div className="center-project">
-        <div className="project-description">
-          <img
-            src={project.projectImageUrl}
-            alt="Project"
-            className="project-image"
-          />
-          <div className="flex-it">
+      <div className={scss.centerProject}>
+        <div className={scss.descriptionContainer}>
+          <div className={scss.projectImage}>
+            <img
+              src={project.projectImageUrl}
+              alt="Project"
+              className="project-image"
+            />
+          </div>
+
+          <div className={scss.projectDescription}>
             <h2>{project.projectName}</h2>
             <span>{project.description}</span>
-            <ul className="built-with">
+            <ul className={scss.builtWithContainer}>
+              <p>Built with: </p>
               {project.builtWith.map((builtWith, i) => {
                 return (
                   <>
-                    <li key={i}>{builtWith}</li>
+                    <li key={i} className={scss.builtWith}>
+                      {builtWith}
+                    </li>
                   </>
                 );
               })}
@@ -49,7 +55,7 @@ export const WebProject = () => {
             <a href={project.websiteUrl}>VISIT</a>
           </div>
         </div>
-        <div className="display-row">
+        <div className={scss.imageGallery}>
           {project.responsiveImagesUrl.map((responsiveImagesUrl) => {
             return (
               <>
@@ -59,7 +65,6 @@ export const WebProject = () => {
                   alt="Responsive gallery"
                   className="responsive-gallery"
                 />
-                <br />
               </>
             );
           })}

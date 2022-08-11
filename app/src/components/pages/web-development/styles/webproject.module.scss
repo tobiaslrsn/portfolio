@@ -1,0 +1,118 @@
+/* img {
+  width: 400px;
+}
+.centerProject {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  padding: 5rem;
+
+  .projectDescription {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 1rem;
+
+    .flex-it {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 20vw;
+    } 
+  }
+
+  .project-image {
+    width: 60vw;
+    // height: 500px;
+    max-width: 90vw;
+    max-height: 500px;
+  }
+  .display-row {
+    display: flex;
+    flex-direction: row;
+    // justify-content: flex-start;
+    align-items: center;
+    width: 100vw;
+    // gap: 2rem;
+
+    .responsive-gallery {
+      width: 20vw;
+      //   height: 500px;
+      max-width: 30vw;
+      max-height: 500px;
+    }
+  }
+}
+
+.builtWithContainer {
+  display: flex;
+  height: 100px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  list-style: none;
+
+  .builtWith {
+    border: 1px solid white;
+    padding: 1rem;
+    border-radius: 1rem;
+  }
+}
+ */
+
+.centerProject {
+  // width: 100vw;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 2rem 2rem 5rem 2rem;
+
+  .descriptionContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-bottom: -0.2rem;
+
+    .projectImage {
+      width: 66.6%;
+      img {
+        width: 100%;
+        min-width: 300px;
+      }
+    }
+
+    .projectDescription {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      width: 33.3%;
+      min-width: 300px;
+
+      .builtWithContainer {
+        display: flex;
+        flex-direction: row;
+        list-style: none;
+        gap: 0.4rem;
+      }
+    }
+  }
+  .imageGallery {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    img {
+      width: 33.3%;
+      min-width: 300px;
+    }
+  }
+}

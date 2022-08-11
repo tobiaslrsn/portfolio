@@ -39,11 +39,22 @@
   text-decoration: none;
 }
 .webTitle {
-  -webkit-text-stroke: 1px white;
+  /*   -webkit-text-stroke: 1px white;
   -webkit-text-fill-color: transparent;
+  color: #fff; */
+  /* 
   font-family: "Times New Roman", Times, serif;
-  font-size: 5rem;
+  font-size: 5rem;*/
   font-weight: 900;
+  font-size: 5rem;
+  letter-spacing: 0.4rem;
+  font-family: "Bebas Neue", cursive;
+  text-shadow: 5px 5px #ffffff;
+  font-style: italic;
+  font-stretch: extra-expanded;
+
+  color: rgb(72, 72, 72);
+  // font-style: normal;
   // background-color: red;
   word-break: break-all;
 }

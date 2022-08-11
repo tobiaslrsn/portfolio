@@ -14,6 +14,7 @@ import { GraphicDesignsRoute } from "./components/routes/GraphicDesigns.routes";
 import { ExtGraphicDesignRoute } from "./components/routes/ExtGraphicDesign.routes";
 import { ExtWebProjectRoute } from "./components/routes/ExtWebProject.routes";
 import ScrollToTop from "./components/misc/ScrollToTop";
+import { AnimatedRoutes } from "./components/routes/AnimatedRoutes.routes";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
